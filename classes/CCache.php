@@ -72,5 +72,13 @@ class CCache{
 		}
 		return $return_size;
 	}
+	
+	public static function ageOfCache($name) { // Получить возраст элемента кэша
+		if(self::checkCache($name)){
+			return  (time() - filectime($_SERVER['DOCUMENT_ROOT'].self::$cache_dir.md5($name).'.tmp'));
+		} else {
+			return false;
+		}
+	}
 }
 ?>
