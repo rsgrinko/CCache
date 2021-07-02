@@ -1,29 +1,29 @@
 <?php
 /*
-  Sample for use CCache.class.php
+  Прим ер использования класса CCache.class.php
 */
 require_once __DIR__.'/classes/CCache.php';
 
-CCache::init('/cache/'); // set cache dir
+CCache::init('/cache/'); // устанавливаем дирректорию для кэша
 
-if(checkCache('test')) { // check awaible cached version
-  $var = CCache::getCache('test'); // get element from cache
-} else {
-  $var = $_SERVER; // get var standart method
-  CCache::writeCache('test', $var); // write element to cache
+if(checkCache('test')) { // проверяем наличие элемента в кэше
+  $var = CCache::getCache('test'); // получаем элемент из кэша
+} else { // При отсутствии элемента в кэше 
+  $var = $_SERVER; // Выполняем действия для получения этого элемента
+  CCache::writeCache('test', $var); // Пишем результат в кэш
 }
 
 
-//you can check cache size (bytes)
+// Можно узнать размер кэша (bytes)
 echo CCache::getCacheSize().' bytes'; 
 
-// You can check element in cache (bytes)
+// Можно узнать размер конкретного элемента в кэше (bytes)
 echo CCache::getSize('test').' bytes';
 
 
-// Delete element from cache
+// Также можно удалить элемент из кэша
 CCache::delFromCache('test');
 
 
-//clear all cache
+// Или полностью очистить кэш
 CCache::clearCache();
