@@ -1,6 +1,6 @@
 <?php
 /*
-  Прим ер использования класса CCache.class.php
+  Пример использования класса CCache.class.php
 */
 require_once __DIR__.'/classes/CCache.php';
 
