@@ -6,7 +6,7 @@
 		https://it-stories.ru
 	*/
 class CCache{
-	private static $cache_dir = '/custom/custom-cache/system_cache/';
+	private static $cache_dir = '/cache_folder/';
 	
 	public static function init($dir){
 		self::$cache_dir = $dir;
