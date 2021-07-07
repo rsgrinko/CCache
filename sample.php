@@ -6,7 +6,7 @@ require_once __DIR__.'/classes/CCache.php';
 
 CCache::init('/cache/'); // устанавливаем дирректорию для кэша
 
-if(checkCache('test')) { // проверяем наличие элемента в кэше
+if(checkCache('test') and CCache::ageOfCache('test')<3600) { // проверяем наличие элемента в кэше
   $var = CCache::getCache('test'); // получаем элемент из кэша
 } else { // При отсутствии элемента в кэше 
   $var = $_SERVER; // Выполняем действия для получения этого элемента
